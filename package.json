@@ -1,0 +1,68 @@
+{
+  "name": "@isdk/detect-text-language",
+  "description": "Detect the text language",
+  "version": "0.0.1",
+  "author": "Riceball LEE <snowyu.lee@gmail.com>",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "build-fast": "tsup",
+    "build": "pnpm run build-fast --dts-resolve --dts && pnpm run doc:md",
+    "doc": "typedoc --plugin none --out web",
+    "doc:md": "typedoc --plugin typedoc-plugin-markdown --out docs",
+    "style": "pnpm run format -c && pnpm run lint",
+    "style:fix": "pnpm run format:fix && pnpm run lint:fix",
+    "format": "prettier \"**/*.{ts,tsx,js,jsx,css,scss,sass,less,md}\"",
+    "format:fix": "pnpm run format --write",
+    "lint": "eslint .",
+    "lint:fix": "pnpm run lint --fix",
+    "test": "vitest run",
+    "release": "bumpp package.json --commit --push --tag && pnpm publish --access public",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "eld": "^1.0.0",
+    "iso-639-3": "^3.0.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.20.0",
+    "@types/better-sqlite3": "^7.6.10",
+    "@types/jest": "^29.5.12",
+    "@typescript-eslint/eslint-plugin": "^7.12.0",
+    "bumpp": "^9.4.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "prettier": "^3.3.1",
+    "tsup": "^8.1.0",
+    "typedoc": "^0.25.13",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.12",
+    "vitest": "^1.6.0"
+  },
+  "files": [
+    "docs",
+    "dist"
+  ],
+  "keywords": [
+    "ai",
+    "ai-tool",
+    "tool",
+    "llm"
+  ],
+  "maintainers": [
+    "Riceball LEE <snowyu.lee@gmail.com>"
+  ],
+  "engines": {
+    "node": ">=20.11.1"
+  },
+  "types": "./dist/index.d.ts"
+}

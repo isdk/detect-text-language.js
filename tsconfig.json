@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es2021",
+    "lib": ["ES2022", "DOM"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    // "strictNullChecks": false,
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types",
+      "./node_modules/@microsoft"
+    ],
+
+    "strictPropertyInitialization": false,
+    "useDefineForClassFields": false,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": [
+    "src/old",
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
+}
