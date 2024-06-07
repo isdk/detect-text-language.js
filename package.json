@@ -53,10 +53,10 @@
     "dist"
   ],
   "keywords": [
-    "ai",
-    "ai-tool",
-    "tool",
-    "llm"
+    "language-processing",
+    "language-detection",
+    "language-recognition",
+    "nlp"
   ],
   "maintainers": [
     "Riceball LEE <snowyu.lee@gmail.com>"
