@@ -3,6 +3,11 @@
   "description": "Detect the text language",
   "version": "0.0.1",
   "author": "Riceball LEE <snowyu.lee@gmail.com>",
+  "homepage": "https://github.com/isdk/detect-text-language.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/isdk/detect-text-language.js.git"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "exports": {
