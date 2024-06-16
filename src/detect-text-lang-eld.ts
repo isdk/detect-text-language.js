@@ -35,6 +35,13 @@ export function detectTextLanguage(text: string, options: {isoCode?: boolean}= {
   }
 }
 
+/**
+ * Detects the language of the provided text and returns the language code along with additional information.
+ *
+ * @param text The string of text to be detected.
+ * @returns An object containing the ISO 639-1 code of the language, and optionally, the ISO 3166 country code, country name, and language name.
+ *          Returns undefined if the language cannot be reliably detected.
+ */
 export function detectTextLangEx(text: string) {
   let result: { iso6391: string, iso3166?: string, name?: string, country?: string } | undefined
   const langInfo = eld.detect(text)
