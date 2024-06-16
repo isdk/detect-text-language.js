@@ -279,7 +279,7 @@
 
 #### Defined in
 
-[country-codes.ts:1](https://github.com/isdk/detect-text-language.js/blob/f929f9724f4ad7a7927c05c0f0f6fde88c165699/src/country-codes.ts#L1)
+[country-codes.ts:1](https://github.com/isdk/detect-text-language.js/blob/0a6de645c1d42a7ccce1bd64f942c179565f01c2/src/country-codes.ts#L1)
 
 ___
 
@@ -544,7 +544,7 @@ ___
 
 #### Defined in
 
-[country-codes.ts:255](https://github.com/isdk/detect-text-language.js/blob/f929f9724f4ad7a7927c05c0f0f6fde88c165699/src/country-codes.ts#L255)
+[country-codes.ts:255](https://github.com/isdk/detect-text-language.js/blob/0a6de645c1d42a7ccce1bd64f942c179565f01c2/src/country-codes.ts#L255)
 
 ## Functions
 
@@ -552,19 +552,24 @@ ___
 
 ▸ **detectTextLangEx**(`text`): `undefined` \| \{ `country?`: `string` ; `iso3166?`: `string` ; `iso6391`: `string` ; `name?`: `string`  }
 
+Detects the language of the provided text and returns the language code along with additional information.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `text` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `text` | `string` | The string of text to be detected. |
 
 #### Returns
 
 `undefined` \| \{ `country?`: `string` ; `iso3166?`: `string` ; `iso6391`: `string` ; `name?`: `string`  }
 
+An object containing the ISO 639-1 code of the language, and optionally, the ISO 3166 country code, country name, and language name.
+         Returns undefined if the language cannot be reliably detected.
+
 #### Defined in
 
-[detect-text-lang-eld.ts:38](https://github.com/isdk/detect-text-language.js/blob/f929f9724f4ad7a7927c05c0f0f6fde88c165699/src/detect-text-lang-eld.ts#L38)
+[detect-text-lang-eld.ts:45](https://github.com/isdk/detect-text-language.js/blob/0a6de645c1d42a7ccce1bd64f942c179565f01c2/src/detect-text-lang-eld.ts#L45)
 
 ___
 
@@ -601,7 +606,7 @@ await detectTextLanguage("in the world!", { isoCode: true });
 
 #### Defined in
 
-[detect-text-lang-eld.ts:25](https://github.com/isdk/detect-text-language.js/blob/f929f9724f4ad7a7927c05c0f0f6fde88c165699/src/detect-text-lang-eld.ts#L25)
+[detect-text-lang-eld.ts:25](https://github.com/isdk/detect-text-language.js/blob/0a6de645c1d42a7ccce1bd64f942c179565f01c2/src/detect-text-lang-eld.ts#L25)
 
 ___
 
@@ -621,4 +626,4 @@ ___
 
 #### Defined in
 
-[detect-text-lang-eld.ts:58](https://github.com/isdk/detect-text-language.js/blob/f929f9724f4ad7a7927c05c0f0f6fde88c165699/src/detect-text-lang-eld.ts#L58)
+[detect-text-lang-eld.ts:65](https://github.com/isdk/detect-text-language.js/blob/0a6de645c1d42a7ccce1bd64f942c179565f01c2/src/detect-text-lang-eld.ts#L65)
