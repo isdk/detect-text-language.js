@@ -14,6 +14,7 @@
 - [detectTextLangEx](modules.md#detecttextlangex)
 - [detectTextLanguage](modules.md#detecttextlanguage)
 - [getCountryCodeFromLang](modules.md#getcountrycodefromlang)
+- [getLanguageFromIso6391](modules.md#getlanguagefromiso6391)
 
 ## Variables
 
@@ -279,7 +280,7 @@
 
 #### Defined in
 
-[country-codes.ts:1](https://github.com/isdk/detect-text-language.js/blob/0a6de645c1d42a7ccce1bd64f942c179565f01c2/src/country-codes.ts#L1)
+[country-codes.ts:1](https://github.com/isdk/detect-text-language.js/blob/3f4efed5b53d0d83775d564d9ee1beb9f7b89d21/src/country-codes.ts#L1)
 
 ___
 
@@ -544,7 +545,7 @@ ___
 
 #### Defined in
 
-[country-codes.ts:255](https://github.com/isdk/detect-text-language.js/blob/0a6de645c1d42a7ccce1bd64f942c179565f01c2/src/country-codes.ts#L255)
+[country-codes.ts:255](https://github.com/isdk/detect-text-language.js/blob/3f4efed5b53d0d83775d564d9ee1beb9f7b89d21/src/country-codes.ts#L255)
 
 ## Functions
 
@@ -569,7 +570,7 @@ An object containing the ISO 639-1 code of the language, and optionally, the ISO
 
 #### Defined in
 
-[detect-text-lang-eld.ts:45](https://github.com/isdk/detect-text-language.js/blob/0a6de645c1d42a7ccce1bd64f942c179565f01c2/src/detect-text-lang-eld.ts#L45)
+[detect-text-lang-eld.ts:44](https://github.com/isdk/detect-text-language.js/blob/3f4efed5b53d0d83775d564d9ee1beb9f7b89d21/src/detect-text-lang-eld.ts#L44)
 
 ___
 
@@ -606,7 +607,7 @@ await detectTextLanguage("in the world!", { isoCode: true });
 
 #### Defined in
 
-[detect-text-lang-eld.ts:25](https://github.com/isdk/detect-text-language.js/blob/0a6de645c1d42a7ccce1bd64f942c179565f01c2/src/detect-text-lang-eld.ts#L25)
+[detect-text-lang-eld.ts:25](https://github.com/isdk/detect-text-language.js/blob/3f4efed5b53d0d83775d564d9ee1beb9f7b89d21/src/detect-text-lang-eld.ts#L25)
 
 ___
 
@@ -626,4 +627,24 @@ ___
 
 #### Defined in
 
-[detect-text-lang-eld.ts:65](https://github.com/isdk/detect-text-language.js/blob/0a6de645c1d42a7ccce1bd64f942c179565f01c2/src/detect-text-lang-eld.ts#L65)
+[detect-text-lang-eld.ts:64](https://github.com/isdk/detect-text-language.js/blob/3f4efed5b53d0d83775d564d9ee1beb9f7b89d21/src/detect-text-lang-eld.ts#L64)
+
+___
+
+### getLanguageFromIso6391
+
+▸ **getLanguageFromIso6391**(`iso6391`): `undefined` \| `string`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `iso6391` | `string` |
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Defined in
+
+[detect-text-lang-eld.ts:73](https://github.com/isdk/detect-text-language.js/blob/3f4efed5b53d0d83775d564d9ee1beb9f7b89d21/src/detect-text-lang-eld.ts#L73)
