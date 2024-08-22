@@ -28,8 +28,7 @@ export function detectTextLanguage(text: string, options: {isoCode?: boolean}= {
   if (result.isReliable()) {
     const lang = result.language
     if (!options.isoCode) {
-      const info = iso6393.find(i => i.iso6391 === lang)
-      return info?.name
+      return getLanguageFromIso6391(lang)
     }
     return lang
   }
@@ -69,4 +68,9 @@ export function getCountryCodeFromLang(iso6391: string) {
       return key
     }
   }
+}
+
+export function getLanguageFromIso6391(iso6391: string) {
+  const info = iso6393.find(i => i.iso6391 === iso6391)
+  return info?.name
 }
