@@ -71,7 +71,6 @@ describe('detectTextLangEx', () => {
 
   it('should detect German text with complete details', async () => {
     const result = detectTextLangEx('Das Wetter ist heute schön.');
-    console.log('🚀 ~ it.only ~ Result:', result)
 
     expect(result).toEqual(
       expect.objectContaining({

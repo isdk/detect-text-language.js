@@ -26,7 +26,7 @@ export function detectTextLanguage(text: string, options: {isoCode?: boolean}= {
   const result = eld.detect(text);
   // console.log('🚀 ~ detectTextLanguage ~ result:', text,result.isReliable(), result.getScores())
   if (result.isReliable()) {
-    const lang = result.language
+    const lang: string = result.language
     if (!options.isoCode) {
       return getLanguageFromIso6391(lang)
     }
