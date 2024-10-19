@@ -9,6 +9,8 @@ let isSubset = false
 export interface IDetectLanguageOptions {
   isoCode?: boolean
   langSubset?: string[]
+  // the score threshold for the detected language
+  threshold?: number
 }
 
 function dynamicLangSubset(langSubset?: string[]) {
@@ -42,13 +44,16 @@ function dynamicLangSubset(langSubset?: string[]) {
 export function detectTextLanguage(text: string, options: IDetectLanguageOptions = {}) {
   dynamicLangSubset(options.langSubset)
   const result = eld.detect(text);
-  // console.log('🚀 ~ detectTextLanguage ~ result:', text,result.isReliable(), result.getScores())
   if (result.isReliable()) {
+    const threshold = options.threshold ?? 0.1
+    const scores = result.getScores()
     const lang: string = result.language
-    if (!options.isoCode) {
-      return getLanguageFromIso6391(lang)
+    if (scores[lang] >= threshold) {
+      if (!options.isoCode) {
+        return getLanguageFromIso6391(lang)
+      }
+      return lang
     }
-    return lang
   }
 }
 
@@ -61,20 +66,24 @@ export function detectTextLanguage(text: string, options: IDetectLanguageOptions
  */
 export function detectTextLangEx(text: string, options?: IDetectLanguageOptions) {
   dynamicLangSubset(options?.langSubset)
-  let result: { iso6391: string, iso3166?: string, name?: string, country?: string } | undefined
+  let result: { iso6391: string, iso3166?: string, name?: string, country?: string, scores?: {[langCode: string]: number} } | undefined
   const langInfo = eld.detect(text)
   if (langInfo.isReliable()) {
+    const threshold = options?.threshold ?? 0.1
+    const scores = langInfo.getScores()
     const iso6391 = langInfo.language
-    result = { iso6391 }
-    const countryCode = getCountryCodeFromLang(iso6391)
-    if (countryCode) {
-      result.iso3166 = countryCode
-      const countryName = CountryNames[countryCode]
-      result.country = countryName
-    }
-    const info = iso6393.find(i => i.iso6391 === iso6391)
-    if (info?.name) {
-      result.name = info.name
+    if (scores[iso6391] >= threshold) {
+      result = { iso6391, scores: langInfo.getScores() }
+      const countryCode = getCountryCodeFromLang(iso6391)
+      if (countryCode) {
+        result.iso3166 = countryCode
+        const countryName = CountryNames[countryCode]
+        result.country = countryName
+      }
+      const info = iso6393.find(i => i.iso6391 === iso6391)
+      if (info?.name) {
+        result.name = info.name
+      }
     }
   }
   return result

@@ -33,6 +33,14 @@ describe('detectTextLang', async () => {
     const result = await detectTextLanguage(text);
     expect(result).toBe('English');
   });
+
+  it('should detect German text with langSubset', async () => {
+    let result = detectTextLanguage('Das Wetter ist heute schön.', { langSubset: ['de', 'en'] });
+    expect(result).toEqual('German');
+
+    result = detectTextLanguage('Das Wetter ist heute schön.', { langSubset: ['en'] });
+    expect(result).toBeUndefined();
+  });
 });
 
 describe('detectTextLangEx', () => {
@@ -77,5 +85,17 @@ describe('detectTextLangEx', () => {
         iso6391: 'de', iso3166: 'DE', country: 'Germany', name: 'German'
       })
     );
+  });
+
+  it('should detect German text with langSubset', async () => {
+    let result = detectTextLangEx('Das Wetter ist heute schön.', { langSubset: ['de', 'en'] });
+    expect(result).toEqual(
+      expect.objectContaining({
+        iso6391: 'de', iso3166: 'DE', country: 'Germany', name: 'German'
+      })
+    );
+
+    result = detectTextLangEx('Das Wetter ist heute schön.', { langSubset: ['en', 'zh'] });
+    expect(result).toBeUndefined();
   });
 });
