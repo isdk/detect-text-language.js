@@ -4,6 +4,23 @@ import { CountryCodes, CountryNames } from './country-codes'
 
 const _CountryCodes = Object.fromEntries(Object.entries(CountryCodes).map(([key, value]) => [key, value.split(',')[0]]))
 
+let isSubset = false
+
+export interface IDetectLanguageOptions {
+  isoCode?: boolean
+  langSubset?: string[]
+}
+
+function dynamicLangSubset(langSubset?: string[]) {
+  if (langSubset?.length) {
+    isSubset = true
+    eld.dynamicLangSubset(langSubset)
+  } else if (isSubset) {
+    isSubset = false
+    eld.dynamicLangSubset(false)
+  }
+}
+
 /**
  * detects the language of the given text.
  *
@@ -22,7 +39,8 @@ const _CountryCodes = Object.fromEntries(Object.entries(CountryCodes).map(([key,
 * // Returns 'en' assuming the detector recognizes English and ISO code option is used.
 * ```
 */
-export function detectTextLanguage(text: string, options: {isoCode?: boolean}= {}) {
+export function detectTextLanguage(text: string, options: IDetectLanguageOptions = {}) {
+  dynamicLangSubset(options.langSubset)
   const result = eld.detect(text);
   // console.log('🚀 ~ detectTextLanguage ~ result:', text,result.isReliable(), result.getScores())
   if (result.isReliable()) {
@@ -41,7 +59,8 @@ export function detectTextLanguage(text: string, options: {isoCode?: boolean}= {
  * @returns An object containing the ISO 639-1 code of the language, and optionally, the ISO 3166 country code, country name, and language name.
  *          Returns undefined if the language cannot be reliably detected.
  */
-export function detectTextLangEx(text: string) {
+export function detectTextLangEx(text: string, options?: IDetectLanguageOptions) {
+  dynamicLangSubset(options?.langSubset)
   let result: { iso6391: string, iso3166?: string, name?: string, country?: string } | undefined
   const langInfo = eld.detect(text)
   if (langInfo.isReliable()) {
