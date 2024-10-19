@@ -1,4 +1,6 @@
-@isdk/detect-text-language / [Exports](modules.md)
+**@isdk/detect-text-language** • [**Docs**](globals.md)
+
+***
 
 ## ai-tool-llm
 
